@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Download, Loader2, Mail, Github, MapPin, Phone, ExternalLink } from 'lucide-react'
+import { X, Download, Loader2 } from 'lucide-react'
 
 interface Props {
   onClose: () => void
