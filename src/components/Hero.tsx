@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowDown, Github, Mail, MapPin, Zap } from 'lucide-react'
+import { ArrowDown, Download, Github, Mail, MapPin, Zap } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 const roles = [
@@ -48,7 +48,11 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
 }
 
-export default function Hero() {
+interface Props {
+  onOpenCV: () => void
+}
+
+export default function Hero({ onOpenCV }: Props) {
   const typed = useTypewriter(roles)
 
   return (
@@ -115,14 +119,15 @@ export default function Hero() {
             >
               Voir mes projets
             </motion.a>
-            <motion.a
-              href="#contact"
-              className="px-7 py-3.5 border border-white/10 text-white/60 rounded-xl text-sm"
+            <motion.button
+              onClick={onOpenCV}
+              className="flex items-center gap-2 px-7 py-3.5 border border-white/10 text-white/60 rounded-xl text-sm"
               whileHover={{ scale: 1.04, borderColor: 'rgba(0,229,160,0.4)', color: 'rgba(0,229,160,1)' }}
               whileTap={{ scale: 0.97 }}
             >
-              Me contacter
-            </motion.a>
+              <Download size={15} />
+              Telecharger CV
+            </motion.button>
           </motion.div>
 
           {/* Social */}

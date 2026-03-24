@@ -1,15 +1,19 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Download } from 'lucide-react'
 
 const navLinks = [
-  { href: '#about', label: 'À propos' },
-  { href: '#skills', label: 'Compétences' },
+  { href: '#about', label: 'A propos' },
+  { href: '#skills', label: 'Competences' },
   { href: '#projects', label: 'Projets' },
   { href: '#contact', label: 'Contact' },
 ]
 
-export default function Header() {
+interface Props {
+  onOpenCV: () => void
+}
+
+export default function Header({ onOpenCV }: Props) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -43,13 +47,15 @@ export default function Header() {
             </li>
           ))}
           <li>
-            <a
-              href="/cv-germain-kamga.pdf"
-              download
-              className="px-4 py-2 rounded-lg border border-accent/40 text-accent text-sm hover:bg-accent hover:text-black transition-all duration-200 font-medium"
+            <motion.button
+              onClick={onOpenCV}
+              className="flex items-center gap-2 px-4 py-2 rounded-lg border border-accent/40 text-accent text-sm font-medium hover:bg-accent hover:text-black transition-all duration-200"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
-              Télécharger CV
-            </a>
+              <Download size={14} />
+              Telecharger CV
+            </motion.button>
           </li>
         </ul>
 
@@ -82,14 +88,13 @@ export default function Header() {
                 {link.label}
               </a>
             ))}
-            <a
-              href="/cv-germain-kamga.pdf"
-              download
-              className="text-accent font-medium"
-              onClick={() => setMenuOpen(false)}
+            <button
+              onClick={() => { setMenuOpen(false); onOpenCV() }}
+              className="flex items-center gap-2 text-accent font-medium"
             >
-              Télécharger CV
-            </a>
+              <Download size={14} />
+              Telecharger CV
+            </button>
           </motion.div>
         )}
       </AnimatePresence>

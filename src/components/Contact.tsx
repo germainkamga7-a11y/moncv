@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useInView } from '../hooks/useInView'
-import { Mail, Github, MessageCircle, Send } from 'lucide-react'
+import { Mail, Github, MessageCircle, Download } from 'lucide-react'
 
 const links = [
   {
@@ -23,7 +23,11 @@ const links = [
   },
 ]
 
-export default function Contact() {
+interface Props {
+  onOpenCV: () => void
+}
+
+export default function Contact({ onOpenCV }: Props) {
   const { ref, inView } = useInView()
 
   return (
@@ -70,14 +74,15 @@ export default function Contact() {
               </a>
             ))}
 
-            <a
-              href="/cv-germain-kamga.pdf"
-              download
-              className="flex items-center gap-3 px-6 py-3 bg-accent text-black font-semibold rounded-xl hover:bg-accent-dim transition-colors w-full justify-center mt-4"
+            <motion.button
+              onClick={onOpenCV}
+              className="flex items-center gap-3 px-6 py-3 bg-accent text-black font-semibold rounded-xl w-full justify-center mt-4"
+              whileHover={{ scale: 1.02, boxShadow: '0 0 24px rgba(0,229,160,0.3)' }}
+              whileTap={{ scale: 0.97 }}
             >
-              <Send size={16} />
-              Télécharger mon CV (PDF)
-            </a>
+              <Download size={16} />
+              Telecharger mon CV (PDF)
+            </motion.button>
           </motion.div>
 
           {/* Quote card */}
