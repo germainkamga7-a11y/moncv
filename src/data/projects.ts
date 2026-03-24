@@ -10,6 +10,7 @@ export interface Project {
   github?: string
   image: string
   highlights: string[]
+  iframeBlocked?: boolean
 }
 
 export const projects: Project[] = [
@@ -59,6 +60,7 @@ export const projects: Project[] = [
     category: 'web',
     status: 'production',
     url: 'https://atipikgroup.net',
+    iframeBlocked: true,
     image: '/screenshots/atipikgroup.png',
     highlights: [
       'Architecture MVC PHP custom',

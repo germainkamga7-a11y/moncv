@@ -75,7 +75,7 @@ export default function ProjectModal({ project, onClose }: Props) {
 
             {/* Content */}
             <div className="h-[65vh] bg-surface-3 relative">
-              {project.url ? (
+              {project.url && !project.iframeBlocked ? (
                 <iframe
                   src={project.url}
                   title={project.title}
@@ -142,8 +142,23 @@ function ProjectPlaceholder({ project }: { project: Project }) {
       </div>
       <div className="flex items-center gap-2 text-white/30 text-xs">
         <RefreshCw size={12} />
-        <span>Aperçu non disponible — projet local</span>
+        <span>
+          {project.url
+            ? "Apercu bloque par le site (X-Frame-Options)"
+            : "Apercu non disponible — projet local"}
+        </span>
       </div>
+      {project.url && (
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 px-5 py-2.5 bg-accent/10 border border-accent/30 text-accent rounded-xl text-sm hover:bg-accent hover:text-black transition-all"
+        >
+          <ExternalLink size={15} />
+          Ouvrir {project.title} dans un nouvel onglet
+        </a>
+      )}
     </div>
   )
 }

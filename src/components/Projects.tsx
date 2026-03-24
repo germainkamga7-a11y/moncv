@@ -139,17 +139,16 @@ function ProjectCard({
         </div>
 
         {/* Iframe or placeholder */}
-        {project.url ? (
+        {project.url && !project.iframeBlocked ? (
           <div className="absolute inset-0 pt-8">
             <iframe
               src={project.url}
               title={project.title}
               className={`w-full h-full border-0 transition-all duration-500 pointer-events-none ${
-                hovered ? 'scale-100 opacity-100' : 'scale-100 opacity-80'
+                hovered ? 'opacity-100' : 'opacity-80'
               }`}
               sandbox="allow-scripts allow-same-origin"
               loading="lazy"
-              style={{ transform: 'scale(1)', transformOrigin: 'top left', width: '100%', height: '100%' }}
             />
           </div>
         ) : (
