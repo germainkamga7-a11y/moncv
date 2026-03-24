@@ -205,6 +205,7 @@ export default function CVPage({ onClose }: Props) {
                       name: 'AtipikGroup',
                       role: 'Développeur PHP Full-Stack',
                       period: '2025',
+                      url: 'atipikgroup.net',
                       desc: "Plateforme web corporative PHP MVC avec gestion des membres, cotisations, chat interne et forum. Hébergée sur cPanel.",
                       tags: ['PHP', 'MySQL', 'JavaScript'],
                     },

@@ -57,6 +57,7 @@ export const projects: Project[] = [
     stack: ['PHP', 'MySQL', 'PHPMailer', 'HTML/CSS', 'JavaScript'],
     category: 'web',
     status: 'production',
+    url: 'https://atipikgroup.net',
     image: '/screenshots/atipikgroup.png',
     highlights: [
       'Architecture MVC PHP custom',
