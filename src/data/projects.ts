@@ -40,6 +40,7 @@ export const projects: Project[] = [
     stack: ['Flutter', 'Dart', 'Firebase', 'Firestore', 'Google Maps', 'Provider'],
     category: 'mobile',
     status: 'production',
+    url: 'https://softmarket-55f22.web.app',
     image: '/screenshots/camermarket.png',
     highlights: [
       'Marketplace multi-vendeurs',

@@ -198,6 +198,7 @@ export default function CVPage({ onClose }: Props) {
                       name: 'CamerMarket',
                       role: 'Développeur Flutter · Firebase',
                       period: '2025 — 2026',
+                      url: 'softmarket-55f22.web.app',
                       desc: 'Marketplace e-commerce africaine avec paiement Mobile Money (MoMo/Orange Money), chat temps réel, OCR scan CNI et système de reviews.',
                       tags: ['Flutter', 'Firebase', 'Google Maps'],
                     },
